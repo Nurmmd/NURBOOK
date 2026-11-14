@@ -12,25 +12,25 @@ const STORAGE = {
 const IMAGENS = {
 
     // IMAGEM DO LOGO
-    logo: "imagens/logo.svg",
+    logo: "imagens/logo.png",
 
     // IMAGEM DO BANNER
-    banner: "imagens/banner.svg",
+    banner: "imagens/banner.jpg",
 
     // IMAGENS DOS PRODUTOS
-    html: "imagens/html.svg",
-    java: "imagens/java.svg",
-    cpp: "imagens/cpp.svg",
-    javascript: "imagens/javascript.svg",
-    marketing: "imagens/marketing.svg",
-    forex: "imagens/forex.svg",
-    empreendedorismo: "imagens/empreendedorismo.svg",
-    excel: "imagens/excel.svg",
-    photoshop: "imagens/photoshop.svg",
-    design: "imagens/design.svg",
-    redes: "imagens/redes.svg",
-    mysql: "imagens/mysql.svg",
-    ia: "imagens/ia.svg"
+    html: "imagens/html.jpg",
+    java: "imagens/java.jpg",
+    cpp: "imagens/cpp.jpg",
+    javascript: "imagens/javascript.jpg",
+    marketing: "imagens/marketing.jpg",
+    forex: "imagens/forex.jpg",
+    empreendedorismo: "imagens/empreendedorismo.jpg",
+    excel: "imagens/excel.jpg",
+    photoshop: "imagens/photoshop.jpg",
+    design: "imagens/design.jpg",
+    redes: "imagens/redes.jpg",
+    mysql: "imagens/mysql.jpg",
+    ia: "imagens/ia.jpg"
 };
 
 
@@ -92,191 +92,13 @@ function gerarID(prefixo = "id") {
 
 
 function criarProdutosIniciais() {
-
-    if (produtos.length > 0) {
-        return;
+    // Sem produtos de demonstração — marketplace começa vazio e pronto para produção.
+    // Vendedores publicam produtos; admin aprova.
+    if (!Array.isArray(produtos)) {
+        produtos = [];
+        salvarStorage(STORAGE.produtos, produtos);
     }
-
-    produtos = [
-
-        {
-            id: gerarID("prod"),
-            nome: "Curso Completo de HTML",
-            categoria: "Programação",
-            tipo: "digital",
-            preco: 500,
-            estoque: 100,
-            descricao: "Aprenda HTML desde o básico até à criação de páginas.",
-            imagem: IMAGENS.html,
-            vendedor: "Nurbook",
-            vendas: 12
-        },
-
-        {
-            id: gerarID("prod"),
-            nome: "Curso de Java",
-            categoria: "Programação",
-            tipo: "digital",
-            preco: 750,
-            estoque: 100,
-            descricao: "Aprenda programação Java passo a passo.",
-            imagem: IMAGENS.java,
-            vendedor: "Nurbook",
-            vendas: 8
-        },
-
-        {
-            id: gerarID("prod"),
-            nome: "Programação C++",
-            categoria: "Programação",
-            tipo: "digital",
-            preco: 650,
-            estoque: 100,
-            descricao: "Curso prático de C++ para iniciantes.",
-            imagem: IMAGENS.cpp,
-            vendedor: "Nurbook",
-            vendas: 15
-        },
-
-        {
-            id: gerarID("prod"),
-            nome: "JavaScript para Iniciantes",
-            categoria: "Programação",
-            tipo: "digital",
-            preco: 600,
-            estoque: 100,
-            descricao: "Aprenda JavaScript para desenvolvimento web.",
-            imagem: IMAGENS.javascript,
-            vendedor: "Nurbook",
-            vendas: 10
-        },
-
-        {
-            id: gerarID("prod"),
-            nome: "Marketing Digital",
-            categoria: "Marketing",
-            tipo: "digital",
-            preco: 450,
-            estoque: 100,
-            descricao: "Aprenda estratégias de marketing digital.",
-            imagem: IMAGENS.marketing,
-            vendedor: "Nurbook",
-            vendas: 20
-        },
-
-        {
-            id: gerarID("prod"),
-            nome: "Introdução ao Forex",
-            categoria: "Finanças",
-            tipo: "digital",
-            preco: 800,
-            estoque: 100,
-            descricao: "Material introdutório sobre Forex e análise de mercado.",
-            imagem: IMAGENS.forex,
-            vendedor: "Nurbook",
-            vendas: 7
-        },
-
-        {
-            id: gerarID("prod"),
-            nome: "Empreendedorismo Digital",
-            categoria: "Empreendedorismo",
-            tipo: "digital",
-            preco: 550,
-            estoque: 100,
-            descricao: "Aprenda a estruturar um pequeno negócio digital.",
-            imagem: IMAGENS.empreendedorismo,
-            vendedor: "Nurbook",
-            vendas: 11
-        },
-
-        {
-            id: gerarID("prod"),
-            nome: "Excel Profissional",
-            categoria: "Tecnologia",
-            tipo: "digital",
-            preco: 400,
-            estoque: 100,
-            descricao: "Aprenda Excel para estudos e negócios.",
-            imagem: IMAGENS.excel,
-            vendedor: "Nurbook",
-            vendas: 17
-        },
-
-        {
-            id: gerarID("prod"),
-            nome: "Photoshop",
-            categoria: "Design",
-            tipo: "digital",
-            preco: 700,
-            estoque: 100,
-            descricao: "Aprenda edição e criação gráfica.",
-            imagem: IMAGENS.photoshop,
-            vendedor: "Nurbook",
-            vendas: 9
-        },
-
-        {
-            id: gerarID("prod"),
-            nome: "Design Gráfico",
-            categoria: "Design",
-            tipo: "digital",
-            preco: 600,
-            estoque: 100,
-            descricao: "Introdução ao design gráfico profissional.",
-            imagem: IMAGENS.design,
-            vendedor: "Nurbook",
-            vendas: 14
-        },
-
-        {
-            id: gerarID("prod"),
-            nome: "Redes de Computadores",
-            categoria: "Tecnologia",
-            tipo: "digital",
-            preco: 650,
-            estoque: 100,
-            descricao: "Conceitos fundamentais de redes.",
-            imagem: IMAGENS.redes,
-            vendedor: "Nurbook",
-            vendas: 13
-        },
-
-        {
-            id: gerarID("prod"),
-            nome: "MySQL do Básico ao Avançado",
-            categoria: "Tecnologia",
-            tipo: "digital",
-            preco: 750,
-            estoque: 100,
-            descricao: "Aprenda bancos de dados MySQL.",
-            imagem: IMAGENS.mysql,
-            vendedor: "Nurbook",
-            vendas: 16
-        },
-
-        {
-            id: gerarID("prod"),
-            nome: "Inteligência Artificial",
-            categoria: "Tecnologia",
-            tipo: "digital",
-            preco: 900,
-            estoque: 100,
-            descricao: "Introdução prática à Inteligência Artificial.",
-            imagem: IMAGENS.ia,
-            vendedor: "Nurbook",
-            vendas: 18
-        }
-
-    ];
-
-    salvarStorage(
-        STORAGE.produtos,
-        produtos
-    );
 }
-
-
 
 function escaparHTML(valor) {
 
@@ -854,7 +676,7 @@ function renderProdutos(lista = produtos) {
                     class="product-image"
                     src="${escaparHTML(produto.imagem)}"
                     alt="${escaparHTML(produto.nome)}"
-                    onerror="this.onerror=null;this.src='imagens/logo.svg'">
+                    onerror="this.onerror=null;this.src='imagens/logo.png'">
 
                 <div class="product-body">
 
@@ -2715,7 +2537,7 @@ function publicarProduto(){
     if(!(com>=0&&com<=70))return notificar("Comissão de afiliados: de 0% a 70%.","error");
     const p={id:gerarID("prod"),nome,categoria:_$("produtoCategoria").value,tipo,preco,estoque,descricao:desc,subtitulo:sub,beneficios:ben,
         publico:linhas(_$("produtoPublico").value),conteudo:linhas(_$("produtoConteudo").value),garantia:parseInt(_$("produtoGarantia").value),
-        comissao:com,status:"pendente",suporte:g("produtoSuporte"),imagem:imgProduto||"imagens/logo.svg",
+        comissao:com,status:"pendente",suporte:g("produtoSuporte"),imagem:imgProduto||"imagens/logo.png",
         vendedor:usuarioLogado.nome,vendedorId:usuarioLogado.id,vendas:0,criadoEm:new Date().toISOString()};
     produtos.unshift(p);
     try{salvarStorage(STORAGE.produtos,produtos);}
@@ -2733,7 +2555,7 @@ function renderProdutos(lista=produtos){
     const c=_$("listaProdutos");
     if(!lista.length){c.innerHTML='<div class="vazio"><i class="fa-solid fa-box-open"></i><h3>Nenhum produto encontrado</h3><p>Tente outra pesquisa.</p></div>';return;}
     c.innerHTML=lista.map(p=>`<article class="product-card pc2">
-<div class="pc-img" onclick="abrirProduto('${p.id}')"><img class="product-image" src="${esc(p.imagem)}" alt="${esc(p.nome)}" onerror="this.onerror=null;this.src='imagens/logo.svg'"><span class="pc-badge">${p.tipo==="digital"?"Digital":"Físico"}</span>${p.comissao>0?`<span class="pc-aff">${p.comissao}% afiliado</span>`:''}</div>
+<div class="pc-img" onclick="abrirProduto('${p.id}')"><img class="product-image" src="${esc(p.imagem)}" alt="${esc(p.nome)}" onerror="this.onerror=null;this.src='imagens/logo.png'"><span class="pc-badge">${p.tipo==="digital"?"Digital":"Físico"}</span>${p.comissao>0?`<span class="pc-aff">${p.comissao}% afiliado</span>`:''}</div>
 <div class="product-body"><div class="product-category">${esc(p.categoria)}</div>
 <h3 class="product-title" onclick="abrirProduto('${p.id}')">${esc(p.nome)}</h3>
 <p class="product-description">${esc(p.subtitulo||p.descricao)}</p>
@@ -2776,7 +2598,7 @@ function renderPaginaVenda(p){
 <span class="sp-chip">${esc(p.categoria)} · ${dig?"Produto digital":"Produto físico"}</span>
 <h1>${esc(p.nome)}</h1><p class="sp-sub">${esc(p.subtitulo||p.descricao.slice(0,160))}</p>
 <div class="sp-meta"><span><i class="fa-solid fa-user"></i> ${esc(p.vendedor)}</span><span><i class="fa-solid fa-bag-shopping"></i> ${p.vendas||0} vendas</span>${gar?`<span><i class="fa-solid fa-shield-halved"></i> Garantia de ${gar} dias</span>`:''}</div></div>
-<aside class="sp-buy"><img src="${esc(p.imagem)}" alt="${esc(p.nome)}" onerror="this.onerror=null;this.src='imagens/logo.svg'">
+<aside class="sp-buy"><img src="${esc(p.imagem)}" alt="${esc(p.nome)}" onerror="this.onerror=null;this.src='imagens/logo.png'">
 <div class="sp-price">${formatarMT(p.preco)}</div>
 <button class="btn btn-success sp-cta" onclick="comprarAgora('${p.id}')"><i class="fa-solid fa-lock"></i> Comprar agora</button>
 <ul class="sp-trust"><li><i class="fa-solid fa-lock"></i>Pagamento seguro</li><li><i class="fa-solid fa-${dig?"bolt":"truck"}"></i>${dig?"Acesso imediato após o pagamento":"Entrega em Moçambique"}</li>${gar?`<li><i class="fa-solid fa-shield-halved"></i>${gar} dias de garantia</li>`:''}</ul></aside></div></div>
@@ -3140,11 +2962,11 @@ document.addEventListener(
         host.innerHTML='<div class="market-grid">'+lista.map(p=>{
             const reg=afiliados.find(a=>a.afiliadoId===id && a.produtoId===p.id && a.link);
             const ganho=R2(Number(p.preco)*Number(p.comissao)/100);
-            const imagem=esc(p.imagem||"imagens/logo.svg");
+            const imagem=esc(p.imagem||"imagens/logo.png");
             return `<article class="market-card">
                 <div class="market-photo" onclick="abrirProduto('${p.id}')" role="button" tabindex="0">
                     <img src="${imagem}" alt="${esc(p.nome)}" loading="lazy"
-                         onerror="this.onerror=null;this.src='imagens/logo.svg'">
+                         onerror="this.onerror=null;this.src='imagens/logo.png'">
                     <span class="market-commission">${Number(p.comissao)}% comissão</span>
                 </div>
                 <div class="market-content">

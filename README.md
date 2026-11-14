@@ -135,7 +135,7 @@ Não é possível criar conta admin pelo registo público.
 ## Imagens
 
 Substitua os ficheiros em `imagens/` pelos seus (logo, banner, produtos).  
-Os SVG actuais são placeholders.
+Imagens de produto e logo incluídas. Marketplace inicia sem produtos — vendedores publicam e admin aprova.
 
 ---
 

@@ -61,13 +61,21 @@
   README.md       → documentação técnica
 
 
-5. DADOS
+5. PRODUTOS
+-------------
+  O marketplace inicia VAZIO (sem produtos de demonstração).
+  - Vendedores publicam produtos
+  - Admin aprova antes de aparecer na loja
+  - Se ainda vir produtos antigos no browser: limpe o localStorage
+    (F12 → Application → Local Storage → Clear)
+
+6. DADOS
 --------
   Tudo fica guardado no browser (localStorage).
   Cada utilizador no mesmo computador partilha a mesma "base de dados" local.
 
 
-6. PRODUÇÃO
+7. PRODUÇÃO
 -----------
   - Preencha server/.env com MPESA_ENV=live e keys reais
   - Use HTTPS
