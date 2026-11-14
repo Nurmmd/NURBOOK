@@ -92,8 +92,19 @@ function gerarID(prefixo = "id") {
 
 
 function criarProdutosIniciais() {
-    // Sem produtos de demonstração — marketplace começa vazio e pronto para produção.
-    // Vendedores publicam produtos; admin aprova.
+    // Marketplace de produção: SEM produtos de demonstração.
+    // Limpa uma vez produtos legados de versões antigas (demo).
+    const LIMPO = "nurbook_produtos_vazio_v1";
+    if (!localStorage.getItem(LIMPO)) {
+        produtos = [];
+        salvarStorage(STORAGE.produtos, produtos);
+        localStorage.setItem(LIMPO, "1");
+        // também limpa afiliados/pedidos de demo ligados a esses produtos
+        try {
+            afiliados = [];
+            salvarStorage(STORAGE.afiliados, afiliados);
+        } catch (e) {}
+    }
     if (!Array.isArray(produtos)) {
         produtos = [];
         salvarStorage(STORAGE.produtos, produtos);
@@ -650,11 +661,11 @@ function renderProdutos(lista = produtos) {
                 </i>
 
                 <h3>
-                    Nenhum produto encontrado
+                    Ainda não há produtos
                 </h3>
 
                 <p style="color:#6b7280;">
-                    Tente outra pesquisa.
+                    O marketplace está pronto. Vendedores publicam e o administrador aprova.
                 </p>
             </div>
         `;
@@ -2553,7 +2564,7 @@ function publicarProduto(){
 function renderProdutos(lista=produtos){
     lista=lista.filter(visivel);
     const c=_$("listaProdutos");
-    if(!lista.length){c.innerHTML='<div class="vazio"><i class="fa-solid fa-box-open"></i><h3>Nenhum produto encontrado</h3><p>Tente outra pesquisa.</p></div>';return;}
+    if(!lista.length){c.innerHTML='<div class="vazio"><i class="fa-solid fa-store"></i><h3>Ainda não há produtos</h3><p>O marketplace está pronto. Vendedores podem publicar e o administrador aprova.</p></div>';return;}
     c.innerHTML=lista.map(p=>`<article class="product-card pc2">
 <div class="pc-img" onclick="abrirProduto('${p.id}')"><img class="product-image" src="${esc(p.imagem)}" alt="${esc(p.nome)}" onerror="this.onerror=null;this.src='imagens/logo.png'"><span class="pc-badge">${p.tipo==="digital"?"Digital":"Físico"}</span>${p.comissao>0?`<span class="pc-aff">${p.comissao}% afiliado</span>`:''}</div>
 <div class="product-body"><div class="product-category">${esc(p.categoria)}</div>
@@ -2956,7 +2967,7 @@ document.addEventListener(
         ).sort((a,b)=>Number(b.comissao)-Number(a.comissao));
 
         if(!lista.length){
-            host.innerHTML='<div class="market-empty"><i class="fa-solid fa-box-open"></i><h3>Nenhum produto encontrado</h3><p>Tente outra pesquisa.</p></div>';
+            host.innerHTML='<div class="market-empty"><i class="fa-solid fa-share-nodes"></i><h3>Nenhum produto para afiliar</h3><p>Quando houver produtos com comissão, aparecem aqui.</p></div>';
             return;
         }
         host.innerHTML='<div class="market-grid">'+lista.map(p=>{
