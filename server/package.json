@@ -1,0 +1,11 @@
+{
+  "name": "nurbook-mpesa-server",
+  "version": "1.0.0",
+  "description": "Nurbook server — zero npm dependencies (Node 18+)",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "node --watch index.js"
+  },
+  "engines": { "node": ">=18" }
+}

@@ -1,0 +1,78 @@
+========================================
+  NURBOOK — MARKETPLACE MOÇAMBIQUE
+  Programa completo pronto a usar
+========================================
+
+1. ARRANCAR O PROGRAMA
+----------------------
+  - Instale o Node.js 18 ou superior (https://nodejs.org)
+  - Abra o terminal na pasta "nurbook"
+  - Execute:
+
+      ./start.sh
+
+    ou:
+
+      node server/index.js
+
+  - Abra no browser:  http://localhost:3001
+
+
+2. O QUE PODE FAZER
+-------------------
+  COMPRADOR
+    - Criar conta / entrar
+    - Ver produtos, categorias, pesquisar
+    - Comprar (carrinho ou página de vendas)
+    - Pagar com M-Pesa, e-Mola, mKesh, cartão ou transferência
+    - Ver pedidos na conta
+
+  VENDEDOR / AFILIADO
+    - Publicar produtos (vão para aprovação do admin)
+    - Página de vendas automática
+    - Programa de afiliados (links e comissões)
+    - Carteira, faturamento e levantamentos
+
+  ADMINISTRADOR
+    - Aprovar / rejeitar produtos
+    - Gerir levantamentos
+    - Ver taxas da plataforma (2% vendas, 10% saques)
+    - Login pelo formulário normal (credenciais definidas no código)
+
+
+3. PAGAMENTOS
+-------------
+  - Números móveis: exactamente 9 dígitos
+      M-Pesa  → começa por 84 ou 85
+      e-Mola  → 86, 87 ou 88
+      mKesh   → 82 ou 83
+  - M-Pesa REAL: configure server/.env com keys do portal
+      https://developer.mpesa.vm.co.mz/
+  - Sem keys, o M-Pesa funciona em modo SIMULADO
+
+
+4. FICHEIROS PRINCIPAIS
+----------------------
+  index.html      → interface
+  css/styles.css  → estilos
+  js/app.js       → lógica do marketplace
+  server/         → API M-Pesa + servidor web
+  imagens/        → logos e imagens dos produtos
+  README.md       → documentação técnica
+
+
+5. DADOS
+--------
+  Tudo fica guardado no browser (localStorage).
+  Cada utilizador no mesmo computador partilha a mesma "base de dados" local.
+
+
+6. PRODUÇÃO
+-----------
+  - Preencha server/.env com MPESA_ENV=live e keys reais
+  - Use HTTPS
+  - Não partilhe o ficheiro .env
+
+
+Suporte técnico: leia o README.md
+========================================
